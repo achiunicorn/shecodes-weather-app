@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="container">
+        <div class="card app">
+          <div class="card-body">
+            <form id="search-form">
+              <div class="input-group mb-3">
+                <button
+                  class="btn btn-outline-secondary"
+                  id="current-location"
+                  type="click"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-geo-alt-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                    />
+                  </svg>
+                </button>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="city-input"
+                  placeholder="City search"
+                />
+                <button class="btn btn-outline-secondary" type="submit">
+                  Search
+                </button>
+              </div>
+            </form>
+
+            <div class="row">
+              <div class="col-12">
+                <h1 id="current-city">Ottawa</h1>
+              </div>
+              <div class="col-12 current-date-time">
+                <p>
+                  <span id="current-date">Friday, October 8, 2021</span>
+                  |
+                  <span id="current-time">3:45pm</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="row current">
+              <div class="col-6 current-weather">
+                <p class="current-temp"><span id="changeTemp">15</span>°C</p>
+                <p class="current-image">🌥</p>
+              </div>
+              <div class="col-6">
+                <div class="current-details">
+                  <p>Precipitation: 2%</p>
+                  <p>Humidity: 80%</p>
+                  <p>Wind: 10km/h</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row forecast">
+              <div class="col-12 forecast-title">
+                <p>Five Day Forecast</p>
+              </div>
+              <div class="col-6 forecast-one-day">
+                <p>Saturday</p>
+              </div>
+              <div class="col-6 forecast-one-temp">
+                <p>14°C 🌧</p>
+              </div>
+
+              <div class="col-6 forecast-two-day">
+                <p>Sunday</p>
+              </div>
+              <div class="col-6 forecast-two-temp">
+                <p>13°C 🌧</p>
+              </div>
+
+              <div class="col-6 forecast-three-day">
+                <p>Monday</p>
+              </div>
+              <div class="col-6 forecast-three-temp">
+                <p>13°C 🌧</p>
+              </div>
+
+              <div class="col-6 forecast-four-day">
+                <p>Tuesday</p>
+              </div>
+              <div class="col-6 forecast-four-temp">
+                <p>17°C ⛅️</p>
+              </div>
+
+              <div class="col-6 forecast-five-day">
+                <p>Wednesday</p>
+              </div>
+              <div class="col-6 forecast-five-temp">
+                <p>20°C 🌤</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/scripts.js"></script>
+  </body>
+</html>
