@@ -107,3 +107,10 @@ h1 {
   font-size: 16px;
   text-align: right;
 }
+
+.footer {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
+  font-family: "Space Mono", monospace;
+}
