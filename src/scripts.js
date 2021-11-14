@@ -14,7 +14,19 @@ function useCurrentLocation(event) {
 
 function updateTemp(response) {
   let changeTemp = document.querySelector("#changeTemp");
+  let changeDescription = document.querySelector("#currentDescription");
+  let changeHumidity = document.querySelector("#currentHumidity");
+  let changeWind = document.querySelector("#currentWind");
+  let weatherIcon = document.querySelector("#weatherIcon");
   changeTemp.innerHTML = Math.round(response.data.main.temp);
+  changeDescription.innerHTML = response.data.weather[0].description;
+  changeHumidity.innerHTML = response.data.main.humidity;
+  changeWind.innerHTML = Math.round(response.data.wind.speed);
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function currentWeather(response) {

@@ -4,13 +4,7 @@
 }
 
 .card {
-  background-color: #fae3d9;
-}
-
-img {
-  max-width: 250px;
-  display: block;
-  margin: 20px auto 0;
+  background-color: #f9f9f9;
 }
 
 .btn {
@@ -23,7 +17,7 @@ h1 {
   text-transform: uppercase;
   font-family: "Nunito", sans-serif;
   font-weight: 800;
-  color: #44aaa9;
+  color: #006666;
 }
 
 .current-date-time {
@@ -63,20 +57,19 @@ h1 {
   font-size: 20px;
 }
 
-.current-image {
-  font-size: 56px;
-  text-align: center;
-  margin: 0;
-  line-height: 24px;
+img {
+  width: 60px;
+  display: block;
+  margin: 0 auto;
 }
 
 .current-details {
-  border: 1px solid #000;
-  border-radius: 6px;
   padding: 10px;
   font-family: "Nunito", sans-serif;
   font-size: 14px;
-  margin-top: 10px;
+  text-transform: uppercase;
+  line-height: 28px;
+  margin-top: 15px;
   margin-right: 50px;
   list-style: none;
 }
@@ -94,7 +87,7 @@ h1 {
   font-style: italic;
   font-size: 18px;
   font-weight: 600;
-  color: #44aaa9;
+  color: #006666;
 }
 
 .forecast-one-day,

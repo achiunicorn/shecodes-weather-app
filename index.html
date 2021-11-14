@@ -24,22 +24,19 @@
     />
     <link rel="stylesheet" href="src/styles.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>Puddles - Weather Forecast</title>
+    <title>Weather Forecast</title>
   </head>
   <body>
     <div class="content">
       <div class="container">
         <div class="card app">
-          <div class="logo">
-            <img src="src/media/logo.png" alt="Company Logo" />
-          </div>
           <div class="card-body">
             <form id="search-form">
               <div class="input-group mb-3">
                 <button
                   class="btn btn-outline-secondary"
                   id="current-location"
-                  type="click"
+                  type="button"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -82,14 +79,16 @@
             <div class="row current">
               <div class="col-6 current-weather">
                 <p class="current-temp"><span id="changeTemp">15</span>°C</p>
-                <p class="current-image">🌥</p>
+                <img src="" class="current-image" id="weatherIcon" alt="" />
               </div>
               <div class="col-6">
-                <ul class="current-details">
-                  <li>Precipitation: 2%</li>
-                  <li>Humidity: 80%</li>
-                  <li>Wind: 10km/h</li>
-                </ul>
+                <em
+                  ><ul class="current-details">
+                    <li id="currentDescription">Broken Clouds</li>
+                    <li>Humidity: <span id="currentHumidity">80</span>%</li>
+                    <li>Wind: <span id="currentWind">10</span>km/h</li>
+                  </ul></em
+                >
               </div>
             </div>
 
@@ -144,7 +143,7 @@
           >
             Open Source Code</a
           >
-          for Puddles is by Amanda Chiu
+          by Amanda Chiu
         </p>
       </div>
     </div>
