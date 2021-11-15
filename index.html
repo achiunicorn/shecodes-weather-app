@@ -24,7 +24,7 @@
     />
     <link rel="stylesheet" href="src/styles.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>Weather</title>
+    <title>Weather Forecast</title>
   </head>
   <body>
     <div class="content">
@@ -36,7 +36,7 @@
                 <button
                   class="btn btn-outline-secondary"
                   id="current-location"
-                  type="click"
+                  type="button"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -56,6 +56,7 @@
                   class="form-control"
                   id="city-input"
                   placeholder="City search"
+                  autocomplete="off"
                 />
                 <button class="btn btn-outline-secondary" type="submit">
                   Search
@@ -78,15 +79,23 @@
 
             <div class="row current">
               <div class="col-6 current-weather">
-                <p class="current-temp"><span id="changeTemp">15</span>°C</p>
-                <p class="current-image">🌥</p>
+                <p class="current-temp">
+                  <span id="changeTemp">15</span
+                  ><span class="tempUnit"
+                    ><a href="#" id="celsius-link">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a></span
+                  >
+                </p>
+                <img src="" class="current-image" id="weatherIcon" alt="" />
               </div>
               <div class="col-6">
-                <div class="current-details">
-                  <p>Precipitation: 2%</p>
-                  <p>Humidity: 80%</p>
-                  <p>Wind: 10km/h</p>
-                </div>
+                <em
+                  ><ul class="current-details">
+                    <li id="currentDescription">Broken Clouds</li>
+                    <li>Humidity: <span id="currentHumidity">80</span>%</li>
+                    <li>Wind: <span id="currentWind">10</span>km/h</li>
+                  </ul></em
+                >
               </div>
             </div>
 
