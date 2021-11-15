@@ -29,6 +29,42 @@ function updateTemp(response) {
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+
+  if (fahrenheitLink.classList.contains("active")) {
+    return;
+  }
+
+  let changeTemp = document.querySelector("#changeTemp");
+  let celsiusTemperature = changeTemp.innerHTML;
+
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+
+  changeTemp.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+
+  if (celsiusLink.classList.contains("active")) {
+    return;
+  }
+
+  let changeTemp = document.querySelector("#changeTemp");
+  let fahrenheitTemperature = changeTemp.innerHTML;
+
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+
+  let celsiusTemperature = (fahrenheitTemperature - 32) / 1.8;
+
+  changeTemp.innerHTML = Math.round(celsiusTemperature);
+}
+
 function currentWeather(response) {
   let searchedCity = document.querySelector("#current-city");
 
@@ -102,5 +138,11 @@ let searchHere = document.querySelector("#search-form");
 
 let findLocation = document.querySelector("#current-location");
 
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+
+let celsiusLink = document.querySelector("#celsius-link");
+
 searchHere.addEventListener("submit", searchCity);
 findLocation.addEventListener("click", useCurrentLocation);
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+celsiusLink.addEventListener("click", displayCelsiusTemperature);

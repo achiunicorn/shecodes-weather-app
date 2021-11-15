@@ -56,6 +56,7 @@
                   class="form-control"
                   id="city-input"
                   placeholder="City search"
+                  autocomplete="off"
                 />
                 <button class="btn btn-outline-secondary" type="submit">
                   Search
@@ -78,7 +79,13 @@
 
             <div class="row current">
               <div class="col-6 current-weather">
-                <p class="current-temp"><span id="changeTemp">15</span>°C</p>
+                <p class="current-temp">
+                  <span id="changeTemp">15</span
+                  ><span class="tempUnit"
+                    ><a href="#" id="celsius-link">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a></span
+                  >
+                </p>
                 <img src="" class="current-image" id="weatherIcon" alt="" />
               </div>
               <div class="col-6">

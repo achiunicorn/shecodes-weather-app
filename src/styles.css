@@ -3,10 +3,6 @@
   margin: 30px auto 0;
 }
 
-.card {
-  background-color: #f9f9f9;
-}
-
 .btn {
   background-color: #fff;
 }
@@ -49,26 +45,25 @@ h1 {
   color: #444444;
 }
 
-#celsius {
-  font-size: 20px;
-}
-
-#farenheit {
-  font-size: 20px;
+.tempUnit {
+  font-size: 16px;
+  margin: 5px;
+  vertical-align: super;
 }
 
 img {
-  width: 60px;
+  width: 70px;
   display: block;
   margin: 0 auto;
+  padding-top: 5px;
 }
 
 .current-details {
   padding: 10px;
   font-family: "Nunito", sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: uppercase;
-  line-height: 28px;
+  line-height: 24px;
   margin-top: 15px;
   margin-right: 50px;
   list-style: none;
