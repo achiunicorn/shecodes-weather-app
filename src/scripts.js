@@ -79,6 +79,33 @@ function searchCurrentCity(position) {
   axios.get(apiURL).then(currentWeather);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-6 forecast-day">
+        <p>${day}</p>
+      </div>
+
+      <div class="col-6 forecast-temp">
+        <span><img src="" class="forecast-image" id="forecast-icon" alt=""/></span>
+        <span id="forecast-high-temp">14°</span>
+        <span id="forecast-low-temp">6°</span>
+      </div>
+    </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + "</div>";
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let now = new Date();
 
 let weekDay = [
@@ -146,3 +173,4 @@ searchHere.addEventListener("submit", searchCity);
 findLocation.addEventListener("click", useCurrentLocation);
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+displayForecast();
