@@ -27,6 +27,14 @@ function updateTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
+}
+
+function getForecast(coordinates) {
+  let apiKey = "bba7368be56623a87a536fec6a35c3b3";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayForecast);
 }
 
 function displayFahrenheitTemperature(event) {
@@ -79,31 +87,53 @@ function searchCurrentCity(position) {
   axios.get(apiURL).then(currentWeather);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
-
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-6 forecast-day">
-        <p>${day}</p>
+        ${formatForecastDay(forecastDay.dt)}
       </div>
 
       <div class="col-6 forecast-temp">
-        <span><img src="" class="forecast-image" id="forecast-icon" alt=""/></span>
-        <span id="forecast-high-temp">14°</span>
-        <span id="forecast-low-temp">6°</span>
+        <span><img src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png" class="forecast-image" id="forecast-icon" alt=""/></span>
+        <span id="forecast-high-temp">${Math.round(
+          forecastDay.temp.max
+        )}°</span>
+        <span id="forecast-low-temp">${Math.round(forecastDay.temp.min)}°</span>
       </div>
     </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + "</div>";
   forecastElement.innerHTML = forecastHTML;
+}
+
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
 }
 
 let now = new Date();
@@ -173,4 +203,3 @@ searchHere.addEventListener("submit", searchCity);
 findLocation.addEventListener("click", useCurrentLocation);
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
-displayForecast();
