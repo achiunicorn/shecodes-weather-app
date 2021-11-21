@@ -1,3 +1,9 @@
+function onLoad(event) {
+  let input = document.querySelector("#city-input");
+  input.value = "London";
+  searchCity(event);
+}
+
 function searchCity(event) {
   event.preventDefault();
   let input = document.querySelector("#city-input");
@@ -18,6 +24,8 @@ function updateTemp(response) {
   let changeHumidity = document.querySelector("#currentHumidity");
   let changeWind = document.querySelector("#currentWind");
   let weatherIcon = document.querySelector("#weatherIcon");
+  let input = document.querySelector("#city-input");
+  input.value = "";
   changeTemp.innerHTML = Math.round(response.data.main.temp);
   changeDescription.innerHTML = response.data.weather[0].description;
   changeHumidity.innerHTML = response.data.main.humidity;
@@ -47,7 +55,8 @@ function currentWeather(response) {
 function searchCurrentCity(position) {
   let apiKey = "bba7368be56623a87a536fec6a35c3b3";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-
+  let input = document.querySelector("#city-input");
+  input.value = "";
   axios.get(apiURL).then(currentWeather);
 }
 
@@ -162,4 +171,4 @@ let findLocation = document.querySelector("#current-location");
 
 searchHere.addEventListener("submit", searchCity);
 findLocation.addEventListener("click", useCurrentLocation);
-window.onload = useCurrentLocation;
+window.onload = onLoad;
