@@ -55,10 +55,11 @@ function displayForecast(response) {
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = "";
 
-  let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
+      forecastHTML += `<div class="row">`;
       forecastHTML =
         forecastHTML +
         `
@@ -77,10 +78,10 @@ function displayForecast(response) {
       </div>
     </div>
   `;
+      forecastHTML = forecastHTML + "</div>";
     }
   });
 
-  forecastHTML = forecastHTML + "</div>";
   forecastElement.innerHTML = forecastHTML;
 }
 
@@ -161,3 +162,4 @@ let findLocation = document.querySelector("#current-location");
 
 searchHere.addEventListener("submit", searchCity);
 findLocation.addEventListener("click", useCurrentLocation);
+window.onload = useCurrentLocation;
